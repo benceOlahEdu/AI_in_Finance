@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import dailyProductPerceivedQualityData from '../../constants/dailyProductPerceivedQuality.json';
-import './index.css';
 import { extent as d3ArrayExtent } from 'd3-array';
 import {
   axisBottom as d3AxisBottom,
@@ -13,7 +12,7 @@ import {
 } from 'd3-scale';
 import { select as d3Select } from 'd3-selection';
 import { line as d3Line } from 'd3-shape';
-import './index.css'
+import '../public/index.css'
 import getContentContainerStyle from './getContentContainerStyle';
 import getSVGDimensions from './getSVGDimensions';
 

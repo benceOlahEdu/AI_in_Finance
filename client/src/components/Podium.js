@@ -5,7 +5,6 @@ class Podium extends Component {
 
     var podiumJSX = [];
     let podium = this.props.podium;
-    podiumJSX.push(<br />);
     if (this.props.currentData.length > 0 && this.props.data.length === this.props.currentData.length && !this.props.gettingNewStock) {
       podiumJSX.push(
         <div className="podium">

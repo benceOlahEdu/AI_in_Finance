@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import * as d3 from "d3";
-import './App.css';
 import Leaderboard from './components/Leaderboard.js';
 import Podium from './components/Podium.js';
 import Buttons from './components/Buttons.js';
@@ -225,10 +224,10 @@ class App extends Component {
 
   handleBuySell = (event) => {
     var userStockData = this.state.userStockData;
-    if (event.key == 'ArrowDown' && userStockData.currentSells > 0) {
+    if (event.key === 'ArrowDown' && userStockData.currentSells > 0) {
       this.setState({userSold:true});
     }
-    if (event.key == 'ArrowUp' && userStockData.currentBuys > 0) {
+    if (event.key === 'ArrowUp' && userStockData.currentBuys > 0) {
       this.setState({userBought:true});
     }
   }
@@ -605,7 +604,7 @@ class App extends Component {
       document.getElementById('container').classList.remove('landing');
       if (currentData.length !== 0 && currentData.length  === data.length) {
         startJSX.push(
-          <div id="start-buy-sell-container">
+          <div id="start-buy-sell-button-container">
             <button onClick={() => {this.handleStart()}} id="start-btn" className="btn btn-active" >Start</button>
           </div>
         );
@@ -613,7 +612,7 @@ class App extends Component {
     }
     else {
       introJSX.push(
-        <div id="intro">
+        <div id="intro" key="intro-text">
           <h2>Welcome to StockIT!</h2>
           <h4>Test your stock-picking skills against the market and a machine learning algorithm</h4>
           <p>A random 365-day period of a random stock will be chosen. You and the AI will each start with 3 stocks, 3 "buys", and 3 "sells". Press the up arrow key to "buy" a stock, and press the down arrow key to "sell" a stock.</p>
@@ -623,18 +622,18 @@ class App extends Component {
         </div>
       );
       startJSX.push(
-        <div id="start-buy-sell-container">
+        <div id="start-buy-sell-button-container" key="start-btn">
           <button onClick={() => {this.handleStart()}} id="start-btn" className="btn btn-active" >Start</button>
         </div>
       );
     }
     return (
-      <div>
-        <div id="container" className="landing">
+      <div key="index-root-container">
+        <div id="container" className="landing" key="container">
           {introJSX}
-          <div id="svg-container">
+          <div id="svg-container" key="svg-container">
             {svgJSX}
-            <div id="below-svg">
+            <div id="below-svg" key="below-svg">
               <div id="start-buy-sell-container">
                 <Slider
                   sliderVal = {this.state.sliderVal}
